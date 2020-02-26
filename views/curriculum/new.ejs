@@ -1,0 +1,28 @@
+<%- include("../partials/header"); %>
+
+<form action="/curriculum/form" method="POST">
+  <div class="form-group">
+    <label for="inputFullName">Nome Completo</label>
+    <input type="name" class="form-control" id="inputFullName" name="curriculum[name]" placeholder="Digite seu nome completo">
+    <small id="nameHelp" class="form-text text-muted" >Essas informações não serão compartilhadas com terceiros.</small>
+  </div>
+  <div class="form-group">
+    <label for="inputTell">Telefone para contato</label>
+    <input type="tell" class="form-control" id="inputTell" name="curriculum[tell]" placeholder="Digite seu telefone para contato">
+  </div>
+  <div class="form-group">
+    <label for="inputEmail">Email</label>
+    <input type="email" class="form-control" id="inputEmail" name="curriculum[email]" placeholder="Digite seu email">
+  </div>
+  <div class="form-group">
+    <label for="inputHabilities">Principais habilidades</label>
+    <input type="habilities" class="form-control" id="inputHabilities" name="curriculum[habilities]" placeholder="Habilidades">
+  </div>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="agreeCheck" name="curriculum[agreement]" value="true" required>
+    <label class="form-check-label" for="agreeCheck">Li e concordo com os termos de uso.</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
+
+<%- include("../partials/footer"); %>

@@ -1,0 +1,41 @@
+<%- include("../partials/header"); %>
+
+<form action="/curriculum/lista" method="GET">
+  <div class="form-group">
+    <label for="inputFullName">Busque um candidato</label>
+    <input type="name" class="form-control" id="inputFullName" name="nome">
+  </div>
+  <button type="submit" class="btn btn-primary">Buscar</button>
+</form>
+<hr>
+<table class="table table-sm">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nome do candidato</th>
+      <th scope="col">Opções</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% let count = 1%>
+    <% curriculums.forEach((curriculum) => { %>
+        <tr>
+            <th scope="row"><%= count %></th>
+            <a href="/curriculum/lista/<%= curriculum._id %>"><td><%= curriculum.name %></td></a>
+            <td>
+                <form action="/curriculum/lista/<%= curriculum._id %>" method="GET" style="display: inline">
+                    <button type="submit" class="btn btn-warning btn-sm">Editar</button>
+                </form>
+                <form action="/curriculum/lista/<%= curriculum._id %>?_method=DELETE" method="POST" style="display: inline">
+                    <button type="submit" class="btn btn-danger btn-sm">Apagar</button>
+                </form>
+            </td>
+        </tr>
+    
+    <% count++ }) %>
+  </tbody>
+</table>
+
+<a href="/logout"><button class="btn btn-danger">Sair da aplicação</button></a>
+
+<%- include("../partials/footer"); %>
